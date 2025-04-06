@@ -4,7 +4,7 @@ import os
 from dotenv import load_dotenv
 
 
-async def work_verification():
+async def get_review_results():
     url = "https://dvmn.org/api/long_polling/"
     token = os.getenv("DVMN_TOKEN")
     headers = {"Authorization": f"Token {token}"}

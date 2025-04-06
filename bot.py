@@ -2,7 +2,8 @@ import os
 import asyncio
 from telegram import Bot
 from dotenv import load_dotenv
-from work_verification import work_verification
+from work_verification import get_review_results
+
 
 
 async def main():
@@ -16,7 +17,7 @@ async def main():
 
     bot = Bot(token=TOKEN)
     while True:
-        new_attempts = await work_verification()
+        new_attempts = await get_review_results()
         if isinstance(new_attempts, list):
             for attempts in new_attempts:
                 lesson_title = attempts.get("lesson_title", "Неизвестный урок")
