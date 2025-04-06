@@ -1,14 +1,14 @@
 import os
+import time
 from telegram import Bot
 from dotenv import load_dotenv
 from work_verification import fetch_review_attempts
 
 
-
 def main():
     load_dotenv()
-    bot_token = os.getenv("BOT_TOKEN")
-    chat_id = os.getenv("CHAT_ID")
+    bot_token = os.environ["BOT_TOKEN"]
+    chat_id = os.environ["CHAT_ID"]
     if not bot_token:
         raise ValueError("BOT_TOKEN не найден в .env файле!")
     if not bot_token:
@@ -28,7 +28,8 @@ def main():
                 else:
                     positive_message = f"У вас проверили работу: '{lesson_title}'!\n\nПреподавателю всё понравилось, можно приступать к следующему уроку!\nСсылка на работу {lesson_url}"
                     bot.send_message(chat_id=chat_id, text=positive_message)
-                
+
+        time.sleep(2)
 
 
 if __name__ == "__main__":

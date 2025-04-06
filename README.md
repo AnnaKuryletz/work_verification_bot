@@ -24,10 +24,12 @@ pip install -r requirements.txt
 ```ini
 BOT_TOKEN=your_bot_token_here
 CHAT_ID=your_chat_id_here
+DVMN_TOKEN=your personal token on DEVMAN
 ```
 * `BOT_TOKEN` — это токен вашего бота, который можно получить, зарегистрировав бота через `BotFather`.
 
 * `CHAT_ID` — это ID чата, куда бот будет отправлять сообщения. Это может быть ваш собственный ID или ID группы. Чтобы узнать свой `chat_id`, используйте `@userinfobot`.
+* `DVMN_TOKEN` — это персональный токен на сайте DEVMAN, его можно найти в разделе API на сайте.
 
 5. Запустите скрипт: После того как файл `.env` настроен, вы можете запустить бота с помощью следующей команды:
 
