@@ -9,14 +9,11 @@ def main():
     load_dotenv()
     bot_token = os.environ["BOT_TOKEN"]
     chat_id = os.environ["CHAT_ID"]
-    if not bot_token:
-        raise ValueError("BOT_TOKEN не найден в .env файле!")
-    if not bot_token:
-        raise ValueError("CHAT_ID не найден в .env файле!")
+    dvmn_token = os.environ["DVMN_TOKEN"]
 
     bot = Bot(token=bot_token)
     while True:
-        new_attempts = fetch_review_attempts()
+        new_attempts = fetch_review_attempts(dvmn_token)
         if isinstance(new_attempts, list):
             for attempts in new_attempts:
                 lesson_title = attempts.get("lesson_title", "Неизвестный урок")
