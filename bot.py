@@ -4,6 +4,7 @@ from telegram import Bot
 from dotenv import load_dotenv
 from work_verification import fetch_review_attempts
 from log_handler import setup_logging, send_log_to_telegram
+import traceback
 
 logger = setup_logging()
 
@@ -39,9 +40,11 @@ def main():
                         logger.info(
                             f"Отправлено сообщение о позитивной проверке для урока: {lesson_title}"
                         )
+
         except Exception as e:
+            error_message = f"❗ Ошибка: {str(e)}\n{traceback.format_exc()}"
             logger.error(f"Ошибка при получении или обработке данных: {str(e)}")
-            send_log_to_telegram(f"Ошибка!: {str(e)}")
+            send_log_to_telegram(error_message)
 
         time.sleep(2)
 
