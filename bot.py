@@ -3,6 +3,17 @@ import time
 from telegram import Bot
 from dotenv import load_dotenv
 from work_verification import fetch_review_attempts
+import logging
+import sys
+
+
+logging.basicConfig(
+    level=logging.INFO,
+    format="%(asctime)s [%(levelname)s] %(message)s",
+    handlers=[logging.StreamHandler(sys.stdout)]
+)
+
+logging.info("✅ Бот успешно запущен!")
 
 
 def main():
