@@ -42,7 +42,7 @@ def main():
                         )
 
         except Exception as e:
-            error_message = f"❗ Ошибка: {str(e)}\n{traceback.format_exc()}"
+            error_message = f"❗ Бот упал с ошибкой: {str(e)}\n{traceback.format_exc()}"
             logger.error(f"Ошибка при получении или обработке данных: {str(e)}")
             send_log_to_telegram(error_message)
 
